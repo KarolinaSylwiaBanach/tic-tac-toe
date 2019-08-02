@@ -18,10 +18,12 @@ public class ticTacToe {
     private JButton p6;
     private JButton p9;
     private JLabel pointsX;
-    private JLabel pointsY;
+    private JLabel pointsO;
     ImageIcon xIcon = new ImageIcon("xBig.png");
-    ImageIcon yIcon = new ImageIcon("xBig.png");
+    ImageIcon oIcon = new ImageIcon("xBig.png");
     ImageIcon xMini = new ImageIcon("xSmall.png");
+    ImageIcon oMini = new ImageIcon("xSmall.png");
+    int p01=0, p02=0, p03=0, p04=0, p05=0, p06=0, p07=0, p08=0, p09=0, points=0;
 
 
 
@@ -85,6 +87,22 @@ public class ticTacToe {
 
             }
         });
+    }
+
+    public void checkWin(){
+        if((p01==1&&p02==1&&p03==1)||(p04==1&&p05==1&&p06==1)||(p07==1&&p08==1&&p09==1)||
+           (p01==1&&p04==1&&p07==1)||(p02==1&&p05==1&&p08==1)||(p03==1&&p06==1&&p09==1)||
+           (p01==1&&p05==1&&p09==1)||(p03==1&&p05==1&&p09==1)){
+            points=Integer.valueOf(pointsX.getText());
+            pointsX.setText(String.valueOf(points+1));
+        }
+        else if((p01==2&&p02==2&&p03==2)||(p04==2&&p05==2&&p06==2)||(p07==2&&p08==2&&p09==2)||
+                (p01==2&&p04==2&&p07==2)||(p02==2&&p05==2&&p08==2)||(p03==2&&p06==2&&p09==2)||
+                (p01==2&&p05==2&&p09==2)||(p03==2&&p05==2&&p09==2)){
+            points=Integer.valueOf(pointsO.getText());
+            pointsO.setText(String.valueOf(points+1));
+        }
+
     }
 
     public static void main(String[] args) {
